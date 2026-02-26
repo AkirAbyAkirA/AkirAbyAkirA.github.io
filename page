@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglas de la Comunidad - Estilo Floral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Degradado animado con morados, magentas y rojos */
+            background: linear-gradient(-45deg, #4a044e, #9d174d, #581c87, #be123c, #701a75);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Tarjetas estilo cristal esmerilado */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 40px 0 rgba(74, 4, 78, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decoración floral en las esquinas de las tarjetas */
+        .glass-card::before {
+            content: '🌸';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 3rem;
+            opacity: 0.15;
+            transform: rotate(15deg);
+        }
+        .glass-card::after {
+            content: '🌿';
+            position: absolute;
+            bottom: -15px;
+            left: -10px;
+            font-size: 4rem;
+            opacity: 0.1;
+            transform: rotate(-20deg);
+        }
+
+        /* Patrón floral de fondo */
+        .floral-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.08;
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0c2.2 0 4 1.8 4 4v32h32c2.2 0 4 1.8 4 4s-1.8 4-4 4H44v32c0 2.2-1.8 4-4 4s-4-1.8-4-4V44H4c-2.2 0-4-1.8-4-4s1.8-4 4-4h32V4c0-2.2 1.8-4 4-4zM20.5 14.5c1.4-1.4 3.8-1.4 5.2 0l14.8 14.8-5.2 5.2-14.8-14.8c-1.4-1.4-1.4-3.8 0-5.2zm39 0c1.4-1.4 3.8-1.4 5.2 0c1.4 1.4 1.4 3.8 0 5.2l-14.8 14.8-5.2-5.2 14.8-14.8zM20.5 65.5c-1.4-1.4-1.4-3.8 0-5.2l14.8-14.8 5.2 5.2-14.8 14.8c-1.4 1.4-3.8 1.4-5.2 0zm39 0c1.4 1.4 1.4 3.8 0 5.2c-1.4 1.4-3.8 1.4-5.2 0l-14.8-14.8 5.2-5.2 14.8 14.8z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #701a75, #be123c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn-enlace {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #faf5ff 0%, #fdf2f8 100%);
+            border: 1px solid #f3e8ff;
+            border-radius: 1rem;
+            color: #701a75;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-enlace:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15);
+            border-color: #d8b4fe;
+        }
+
+        /* Elementos florales flotantes */
+        .floating-flower {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <!-- Patrón de fondo abstracto -->
+    <div class="floral-pattern"></div>
+
+    <div class="content-wrapper max-w-3xl mx-auto mt-4">
+        
+        <!-- Encabezado Principal -->
+        <header class="text-center mb-12 mt-6 relative">
+            <span class="floating-flower text-4xl" style="top: -20px; left: 10%;">🌺</span>
+            <span class="floating-flower text-3xl" style="top: 40px; right: 15%; animation-delay: 2s;">🌷</span>
+            <span class="floating-flower text-4xl" style="bottom: -10px; left: 20%; animation-delay: 4s;">🌸</span>
+
+            <div class="inline-flex items-center justify-center p-5 bg-white/20 rounded-full backdrop-blur-md mb-6 border border-white/30 shadow-xl">
+                <i data-lucide="flower-2" class="w-14 h-14 text-pink-200"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg tracking-tight">Nuestra Comunidad</h1>
+            <p class="text-pink-100 text-lg md:text-xl font-light tracking-widest uppercase flex items-center justify-center gap-3">
+                <span>✦</span> Guía y Normas <span>✦</span>
+            </p>
+        </header>
+
+        <!-- Sección 1: Sobre la Comunidad y Objetivos -->
+        <section class="glass-card rounded-3xl p-6 md:p-8 mb-6 transition-transform hover:-translate-y-1 duration-300">
+            <div class="flex items-center gap-3 mb-5 border-b border-purple-100 pb-3">
+                <div class="p-2 bg-purple-100 rounded-xl text-purple-700">
+                    <i data-lucide="sprout" class="w-7 h-7"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gradient">1. Sobre Nosotros y Nuestro Objetivo</h2>
+            </div>
+            <p class="mb-4 text-gray-700 leading-relaxed">
+                ¡Te damos la más cordial bienvenida! 🌸 Esta comunidad ha sido creada como un espacio seguro y respetuoso para <strong>[Escribe aquí el tema de tu comunidad]</strong>.
+            </p>
+            <p class="text-gray-700 leading-relaxed bg-purple-50/50 p-4 rounded-2xl border border-purple-100/50">
+                <strong class="text-purple-900">Nuestro objetivo principal:</strong> Fomentar el apoyo mutuo, florecer juntos compartiendo información de valor, aprender y construir relaciones positivas. Queremos que este sea un lugar donde te sientas feliz de participar.
+            </p>
+        </section>
+
+        <!-- Sección 2: Estructura de los Grupos -->
+        <section class="glass-card rounded-3xl p-6 md:p-8 mb-6 transition-transform hover:-translate-y-1 duration-300">
+            <div class="flex items-center gap-3 mb-5 border-b border-rose-100 pb-3">
+                <div class="p-2 bg-rose-100 rounded-xl text-rose-700">
+                    <i data-lucide="layout-grid" class="w-7 h-7"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gradient">2. Estructura de la Comunidad</h2>
+            </div>
+            <p class="mb-5 text-gray-700 leading-relaxed">
+                Nuestra comunidad en WhatsApp está dividida en diferentes "jardines" o grupos para mantener el orden:
+            </p>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-4 bg-gradient-to-r from-purple-50 to-transparent p-4 rounded-2xl border-l-4 border-purple-400">
+                    <i data-lucide="megaphone" class="w-6 h-6 text-purple-600 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="text-purple-900 text-lg">Grupo de Avisos (Anuncios):</strong><br> 
+                        <span class="text-gray-600 text-sm">Aquí solo los administradores pueden escribir. Se usa exclusivamente para información importante, eventos o noticias. ¡No te perderás de nada!</span>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4 bg-gradient-to-r from-pink-50 to-transparent p-4 rounded-2xl border-l-4 border-pink-400">
+                    <i data-lucide="messages-square" class="w-6 h-6 text-pink-600 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <strong class="text-pink-900 text-lg">Grupos de Chat / Temáticos:</strong><br>
+                        <span class="text-gray-600 text-sm">Espacios abiertos donde todos podemos dialogar, compartir fotos y debatir siempre bajo las normas de convivencia.</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Sección 3: Normas de Convivencia -->
+        <section class="glass-card rounded-3xl p-6 md:p-8 mb-6 transition-transform hover:-translate-y-1 duration-300">
+            <div class="flex items-center gap-3 mb-6 border-b border-fuchsia-100 pb-3">
+                <div class="p-2 bg-fuchsia-100 rounded-xl text-fuchsia-700">
+                    <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gradient">3. Normas de Convivencia</h2>
+            </div>
+            <p class="mb-6 text-gray-700">Para mantener la armonía de nuestro espacio, te pedimos seguir estas sencillas reglas: 🌷</p>
+            
+            <div class="grid md:grid-cols-2 gap-5">
+                <!-- Regla 1 -->
+                <div class="bg-white/60 p-5 rounded-2xl border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="bg-purple-100 p-2 rounded-lg"><i data-lucide="smile" class="w-5 h-5 text-purple-700"></i></div>
+                        <h3 class="font-bold text-purple-900">Respeto Absoluto</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 ml-12">Cero tolerancia a insultos, discriminación o discursos de odio. Trata a los demás con amabilidad.</p>
+                </div>
+
+                <!-- Regla 2 -->
+                <div class="bg-white/60 p-5 rounded-2xl border border-pink-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="bg-pink-100 p-2 rounded-lg"><i data-lucide="shield-alert" class="w-5 h-5 text-pink-700"></i></div>
+                        <h3 class="font-bold text-pink-900">Cero Spam</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 ml-12">Prohibido enviar cadenas, publicidad no solicitada o enlaces dudosos que no aporten a la comunidad.</p>
+                </div>
+
+                <!-- Regla 3 -->
+                <div class="bg-white/60 p-5 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="bg-rose-100 p-2 rounded-lg"><i data-lucide="eye-off" class="w-5 h-5 text-rose-700"></i></div>
+                        <h3 class="font-bold text-rose-900">Contenido Adecuado</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 ml-12">No se permite enviar material explícito o violento. Mantengamos el grupo apto y agradable para todos.</p>
+                </div>
+
+                <!-- Regla 4 -->
+                <div class="bg-white/60 p-5 rounded-2xl border border-fuchsia-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="bg-fuchsia-100 p-2 rounded-lg"><i data-lucide="clock" class="w-5 h-5 text-fuchsia-700"></i></div>
+                        <h3 class="font-bold text-fuchsia-900">Horarios Prudentes</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 ml-12">Procura enviar mensajes en horarios adecuados (ej. de 8:00 AM a 10:00 PM) para respetar el descanso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Privacidad y Seguridad -->
+        <section class="glass-card rounded-3xl p-6 md:p-8 mb-6 transition-transform hover:-translate-y-1 duration-300">
+            <div class="flex items-center gap-3 mb-5 border-b border-purple-100 pb-3">
+                <div class="p-2 bg-purple-100 rounded-xl text-purple-700">
+                    <i data-lucide="lock" class="w-7 h-7"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gradient">4. Privacidad y Seguridad</h2>
+            </div>
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl border border-purple-100">
+                <ul class="space-y-4 text-gray-700">
+                    <li class="flex gap-3">
+                        <i data-lucide="user-x" class="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5"></i>
+                        <span><strong>No contactes por privado:</strong> Evita escribir al chat personal de otros miembros si no han dado su consentimiento previo en el grupo.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i data-lucide="file-warning" class="w-5 h-5 text-pink-500 flex-shrink-0 mt-0.5"></i>
+                        <span><strong>Protección de datos:</strong> Está estrictamente prohibido compartir números de teléfono, capturas de pantalla o información personal fuera de esta comunidad.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sección 5: Enlaces Importantes (NUEVA SECCIÓN) -->
+        <section class="glass-card rounded-3xl p-6 md:p-8 mb-6 transition-transform hover:-translate-y-1 duration-300">
+            <div class="flex items-center gap-3 mb-5 border-b border-fuchsia-100 pb-3">
+                <div class="p-2 bg-fuchsia-100 rounded-xl text-fuchsia-700">
+                    <i data-lucide="link" class="w-7 h-7"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gradient">5. Enlaces Importantes</h2>
+            </div>
+            <p class="mb-5 text-gray-700">Aquí encontrarás accesos rápidos a nuestros recursos y redes sociales. ¡Guarda esta información! 🌻</p>
+            
+            <div class="grid sm:grid-cols-2 gap-4">
+                <!-- Enlace 1 -->
+                <a href="#" class="btn-enlace group">
+                    <div class="bg-purple-100 p-2 rounded-lg group-hover:bg-purple-200 transition-colors">
+                        <i data-lucide="instagram" class="w-5 h-5 text-purple-700"></i>
+                    </div>
+                    <div>
+                        <span class="block text-sm text-gray-500 font-normal">Síguenos en</span>
+                        <strong class="block text-purple-900">Instagram</strong>
+                    </div>
+                </a>
+                
+                <!-- Enlace 2 -->
+                <a href="#" class="btn-enlace group">
+                    <div class="bg-pink-100 p-2 rounded-lg group-hover:bg-pink-200 transition-colors">
+                        <i data-lucide="facebook" class="w-5 h-5 text-pink-700"></i>
+                    </div>
+                    <div>
+                        <span class="block text-sm text-gray-500 font-normal">Únete a nuestro</span>
+                        <strong class="block text-pink-900">Grupo de Facebook</strong>
+                    </div>
+                </a>
+
+                <!-- Enlace 3 -->
+                <a href="#" class="btn-enlace group">
+                    <div class="bg-rose-100 p-2 rounded-lg group-hover:bg-rose-200 transition-colors">
+                        <i data-lucide="globe" class="w-5 h-5 text-rose-700"></i>
+                    </div>
+                    <div>
+                        <span class="block text-sm text-gray-500 font-normal">Visita nuestra</span>
+                        <strong class="block text-rose-900">Página Web</strong>
+                    </div>
+                </a>
+
+                <!-- Enlace 4 -->
+                <a href="#" class="btn-enlace group">
+                    <div class="bg-fuchsia-100 p-2 rounded-lg group-hover:bg-fuchsia-200 transition-colors">
+                        <i data-lucide="file-text" class="w-5 h-5 text-fuchsia-700"></i>
+                    </div>
+                    <div>
+                        <span class="block text-sm text-gray-500 font-normal">Llena el</span>
+                        <strong class="block text-fuchsia-900">Formulario de Registro</strong>
+                    </div>
+                </a>
+            </div>
+            <p class="text-xs text-gray-400 mt-4 italic text-center">* Puedes actualizar estos enlaces según lo necesites.</p>
+        </section>
+
+        <!-- Sección 6: Administradores -->
+        <section class="glass-card rounded-3xl p-6 md:p-8 mb-10 transition-transform hover:-translate-y-1 duration-300 relative overflow-hidden">
+            <!-- Flor decorativa de fondo en esta sección -->
+            <i data-lucide="flower" class="absolute -right-10 -bottom-10 w-48 h-48 text-purple-500/5 rotate-45"></i>
+            
+            <div class="flex items-center gap-3 mb-5 border-b border-purple-100 pb-3 relative z-10">
+                <div class="p-2 bg-gradient-to-r from-purple-600 to-pink-500 rounded-xl text-white shadow-md">
+                    <i data-lucide="crown" class="w-7 h-7"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gradient">6. El Rol de los Administradores</h2>
+            </div>
+            
+            <div class="relative z-10">
+                <p class="mb-4 text-gray-700">
+                    Los administradores estamos aquí para ayudarte, moderar la conversación y asegurar que este jardín siga floreciendo. 🌿
+                </p>
+                <div class="bg-white/50 p-5 rounded-2xl border border-purple-100 mb-6">
+                    <p class="mb-3 text-gray-700">
+                        <strong class="text-purple-800">Medidas de moderación:</strong> Si un miembro incumple las normas, se aplicará el siguiente proceso:
+                    </p>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600 ml-2 marker:text-pink-500 marker:font-bold">
+                        <li>Se eliminará el mensaje inapropiado.</li>
+                        <li>Se hará un llamado de atención amistoso (público o privado).</li>
+                        <li>Como último recurso, se eliminará al miembro de la comunidad de forma permanente para proteger al resto del grupo.</li>
+                    </ol>
+                </div>
+                
+                <div class="text-center mt-8 p-6 bg-gradient-to-r from-purple-50 via-pink-50 to-rose-50 rounded-2xl border border-white shadow-inner">
+                    <p class="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-rose-600 font-semibold text-lg italic">
+                        "Al permanecer en esta comunidad, aceptas cumplir con estas normas. <br>¡Gracias por hacer de este grupo un lugar maravilloso!" ✨
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-white/80 pb-10 text-sm font-light tracking-wide flex flex-col items-center gap-2">
+            <span>Creado con ♥ para nuestra comunidad</span>
+            <i data-lucide="flower-2" class="w-4 h-4 text-pink-300"></i>
+        </footer>
+
+    </div>
+
+    <!-- Inicialización de Iconos -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
